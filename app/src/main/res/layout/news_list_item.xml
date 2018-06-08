@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <ImageView
+        android:id="@+id/newsItemImgImageView"
+        android:layout_width="@dimen/listItemImgDim"
+        android:layout_height="@dimen/listItemImgDim"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="@dimen/newsItemInnerSpacing"
+        android:layout_marginEnd="@dimen/listItemMainSpacing"
+        android:layout_marginRight="@dimen/listItemMainSpacing"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/newsItemImgDesc"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:id="@+id/newsItemTitleTextView"
+        style="@style/newsItemMainTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/newsItemImgImageView"
+        android:layout_toRightOf="@id/newsItemImgImageView"
+        android:ellipsize="end"
+        android:maxLines="2"
+        tools:text="This is A dummmmmmmy title" />
+
+    <TextView
+        android:id="@+id/newsItemDescriptionTextView"
+        style="@style/newsItemSecondaryTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignBottom="@id/newsItemImgImageView"
+        android:layout_below="@id/newsItemTitleTextView"
+        android:layout_toEndOf="@id/newsItemImgImageView"
+        android:layout_toRightOf="@id/newsItemImgImageView"
+        android:ellipsize="end"
+        android:maxLines="4"
+        tools:text="This is a long description of the article" />
+
+    <TextView
+        android:id="@+id/newsItemSectionTitleTextView"
+        style="@style/newsItemTitleStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/newsItemImgImageView"
+        android:layout_marginEnd="@dimen/newsItemInnerSpacing"
+        android:layout_marginRight="@dimen/newsItemInnerSpacing"
+        android:text="@string/newsItemSectionTitle" />
+
+    <TextView
+        android:id="@+id/newsItemSectionValueTextView"
+        style="@style/newsItemSecondaryTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/newsItemImgImageView"
+        android:layout_toEndOf="@id/newsItemSectionTitleTextView"
+        android:layout_toRightOf="@id/newsItemSectionTitleTextView"
+        tools:text="dummy section" />
+
+    <TextView
+        android:id="@+id/newsItemAuthorValueTextView"
+        style="@style/newsItemSecondaryTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/newsItemImgImageView"
+        android:layout_toEndOf="@id/newsItemAuthorTitleTextView"
+        android:layout_toRightOf="@id/newsItemAuthorTitleTextView"
+        tools:text="dummy author" />
+
+    <TextView
+        android:id="@+id/newsItemAuthorTitleTextView"
+        style="@style/newsItemTitleStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/newsItemImgImageView"
+        android:layout_marginEnd="@dimen/newsItemInnerSpacing"
+        android:layout_marginLeft="@dimen/listItemMainSpacing"
+        android:layout_marginRight="@dimen/newsItemInnerSpacing"
+        android:layout_marginStart="@dimen/listItemMainSpacing"
+        android:layout_toEndOf="@id/newsItemSectionValueTextView"
+        android:layout_toRightOf="@id/newsItemSectionValueTextView"
+        android:gravity="end"
+        android:text="@string/newsItemAuthorTitle" />
+
+    <TextView
+        android:id="@+id/newsItemDateTitleTextView"
+        style="@style/newsItemTitleStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/newsItemSectionTitleTextView"
+        android:layout_marginEnd="@dimen/newsItemInnerSpacing"
+        android:layout_marginRight="@dimen/newsItemInnerSpacing"
+        android:text="@string/newsItemDateTitle" />
+
+    <TextView
+        android:id="@+id/newsItemDateValueTextView"
+        style="@style/newsItemSecondaryTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/newsItemSectionTitleTextView"
+        android:layout_toEndOf="@id/newsItemDateTitleTextView"
+        android:layout_toRightOf="@id/newsItemDateTitleTextView"
+        tools:text="00 - 00 - 0000" />
+
+    <View
+        android:id="@+id/newsItemDividerView"
+        style="@style/newsItemDividerStyle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dividerHeight"
+        android:layout_below="@id/newsItemDateTitleTextView"
+        android:layout_margin="@dimen/listItemMainSpacing" />
+</RelativeLayout>

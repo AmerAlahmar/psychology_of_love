@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="listItemImgDim">100dp</dimen>
+    <dimen name="listItemMainSpacing">8dp</dimen>
+    <dimen name="newsItemInnerSpacing">4dp</dimen>
+    <dimen name="dividerHeight">2dp</dimen>
+</resources>

@@ -1,0 +1,39 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarker</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="newsItemMainTextStyle">
+        <item name="android:textSize">@dimen/newsItemMainTextSize</item>
+        <item name="android:textColor">@color/colorPrimaryText</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="newsItemSecondaryTextStyle">
+        <item name="android:textSize">@dimen/newsItemSecondaryTextSize</item>
+        <item name="android:textColor">@color/colorSecondaryText</item>
+    </style>
+
+    <style name="newsItemTitleStyle">
+        <item name="android:textSize">@dimen/newsItemSecondaryTextSize</item>
+        <item name="android:textColor">@color/colorPrimaryText</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="listItemsErrorTextStyle">
+        <item name="android:textSize">@dimen/listItemsErrorTextSize</item>
+        <item name="android:textColor">@color/colorSecondaryText</item>
+    </style>
+
+    <style name="newsItemDividerStyle">
+        <item name="android:background">@color/colorDivider</item>
+    </style>
+
+    <dimen name="newsItemMainTextSize">16sp</dimen>
+    <dimen name="newsItemSecondaryTextSize">14sp</dimen>
+    <dimen name="listItemsErrorTextSize">18sp</dimen>
+</resources>
