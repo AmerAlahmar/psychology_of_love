@@ -20,6 +20,8 @@ import java.util.ArrayList;
 
 public final class NewsQueryUtils {
     private static final String TAG = NewsQueryUtils.class.getName();
+    private static final int READTIMEOUT = 10000;
+    private static final int CONNECTTIMEOUT = 70000;
 
     private NewsQueryUtils() {
     }
@@ -55,11 +57,11 @@ public final class NewsQueryUtils {
         HttpURLConnection httpURLConnection = null;
         try {
             httpURLConnection = (HttpURLConnection) url.openConnection();
-            httpURLConnection.setReadTimeout(10000);
-            httpURLConnection.setConnectTimeout(700000);
+            httpURLConnection.setReadTimeout(READTIMEOUT);
+            httpURLConnection.setConnectTimeout(CONNECTTIMEOUT);
             httpURLConnection.setRequestMethod("GET");
             httpURLConnection.connect();
-            if (httpURLConnection.getResponseCode() != 200) {
+            if (httpURLConnection.getResponseCode() != HttpURLConnection.HTTP_OK) {
                 Log.e(TAG, "makeHttpConnection: Response code not OK, Response code: " + httpURLConnection.getResponseCode());
                 httpURLConnection.disconnect();
                 return null;
@@ -131,8 +133,8 @@ public final class NewsQueryUtils {
                     desc = jsonCurrentObject.getJSONObject("fields").getString("trailText");
                 if (jsonCurrentObject.has("sectionName"))
                     sectionName = jsonCurrentObject.getString("sectionName");
-                if (jsonCurrentObject.getJSONArray("references").length() > 0)
-                    author = getDataFromJsonArray(jsonCurrentObject.getJSONArray("references"));
+                if (jsonCurrentObject.getJSONObject("fields").has("byline"))
+                    author = jsonCurrentObject.getJSONObject("fields").getString("byline");
                 if (jsonCurrentObject.has("webPublicationDate"))
                     date = jsonCurrentObject.getString("webPublicationDate");
                 if (jsonCurrentObject.has("webUrl"))
@@ -144,21 +146,6 @@ public final class NewsQueryUtils {
             return null;
         }
         return news;
-    }
-
-    private static String getDataFromJsonArray(JSONArray references) throws JSONException {
-        StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i < references.length(); i++) {
-            try {
-                if (references.getJSONObject(i).has("type") && references.getJSONObject(i).get("type").equals("author")) {
-                    stringBuilder.append(references.getJSONObject(i).getString("id")).append(News.AUTHOR_SEPARATOR);
-                }
-            } catch (JSONException e) {
-                Log.e(TAG, "getDataFromJsonArray: Error while parsing JSONArray object");
-                throw e;
-            }
-        }
-        return stringBuilder.toString();
     }
 
     private static Bitmap getImgBitmap(String img) {

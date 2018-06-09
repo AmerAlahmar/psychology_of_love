@@ -5,6 +5,6 @@
     <string name="newsItemDateTitle">Published:</string>
     <string name="newsItemImgDesc">Image of this news</string>
     <string name="noNetworkError">No Internet Connection</string>
-    <string name="requestUrlStr">https://content.guardianapis.com/search?order-by=newest&amp;show-fields=thumbnail,trailText&amp;show-references=author&amp;page-size=20&amp;q=psycho%20AND%20lovers&amp;api-key=test</string>
+    <string name="requestUrlStr">https://content.guardianapis.com/search?order-by=newest&amp;show-fields=thumbnail,trailText,byline&amp;page-size=10&amp;q=psycho%20AND%20lovers&amp;api-key=2f9983a9-01ab-4f12-a8ec-8e48dcb466e6</string>
     <string name="errorLadingData">Couldn\'t find any news...</string>
 </resources>

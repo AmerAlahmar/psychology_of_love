@@ -9,7 +9,6 @@ public class News {
     public static final String NO_DATE = "NO_DATE";
     public static final String NO_AUTHOR = "NO_AUTHOR";
     public static final String NO_URL = "NO_URL";
-    public static final String AUTHOR_SEPARATOR = ";";
     private Bitmap imgBitmap;
     private String title;
     private String description;
@@ -18,7 +17,7 @@ public class News {
     private String date;
     private String url;
 
-    public News(Bitmap imgBitmap, String title, String description, String section, String author, String date, String url) {
+    News(Bitmap imgBitmap, String title, String description, String section, String author, String date, String url) {
         this.imgBitmap = imgBitmap;
         this.title = title;
         this.description = description;
@@ -45,11 +44,7 @@ public class News {
     }
 
     public String getAuthor() {
-        return author.replaceAll("author/", "")
-                .replaceAll(AUTHOR_SEPARATOR, "\n")
-                .trim()
-                .replaceFirst(String.valueOf(author.charAt(0)), String.valueOf(author.charAt(0)).toUpperCase())
-                .replaceAll("-", " ");
+        return author;
     }
 
     public String getDate() {
