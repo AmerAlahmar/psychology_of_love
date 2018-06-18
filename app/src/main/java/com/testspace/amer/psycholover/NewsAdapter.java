@@ -74,7 +74,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
         }
 
         void bind(final News news) {
-            if (news.getImgBitmap() == News.NO_IMGBITMAP) {
+            if (news.getImgBitmap() == News.NO_IMGBITMAP || news.getImgBitmap() == null) {
                 newsItemImgImageView.setImageResource(R.drawable.love_mind);
             } else {
                 newsItemImgImageView.setImageBitmap(news.getImgBitmap());
@@ -103,7 +103,6 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
                 newsItemDateValueTextView.setVisibility(View.INVISIBLE);
                 newsItemDateTitleTextView.setVisibility(View.INVISIBLE);
             }
-            newsItemImgImageView.setImageBitmap(news.getImgBitmap());
             newsItemDescriptionTextView.setText(news.getDescription());
             newsItemDateValueTextView.setText(news.getDate());
             newsItemTitleTextView.setText(news.getTitle());

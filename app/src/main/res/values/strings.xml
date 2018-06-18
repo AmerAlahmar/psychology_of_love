@@ -5,6 +5,32 @@
     <string name="newsItemDateTitle">Published:</string>
     <string name="newsItemImgDesc">Image of this news</string>
     <string name="noNetworkError">No Internet Connection</string>
-    <string name="requestUrlStr">https://content.guardianapis.com/search?order-by=newest&amp;show-fields=thumbnail,trailText,byline&amp;page-size=10&amp;q=psycho%20AND%20lovers&amp;api-key=2f9983a9-01ab-4f12-a8ec-8e48dcb466e6</string>
-    <string name="errorLadingData">Couldn\'t find any news...</string>
+    <string name="requestUrlStr">https://content.guardianapis.com/search</string>
+    <string name="errorLadingData">Couldn\'t find any news…</string>
+    <string name="settingsActivityName">Settings Activity</string>
+    <string name="settingsActivityTitle">Settings</string>
+    <string name="settings_orderBy_label">Order By</string>
+    <string name="settings_orderBy_key">orderBy</string>
+    <string name="settings_orderBy_default">@string/settings_orderBy_mostRelevant_value</string>
+    <string name="settings_toDate_label">Only News Before This Date</string>
+    <string name="settings_toDate_key">toDate</string>
+    <string name="settings_toDate_default">Format: YYYY-MM-DD</string>
+    <string name="settings_toDate_hint">Format:  YYYY-MM-DD</string>
+    <string name="settings_orderBy_oldest_label">Oldest</string>
+    <string name="settings_orderBy_newest_label">Newest</string>
+    <string name="settings_orderBy_mostRelevant_label">Most Relevant</string>
+    <string name="settings_orderBy_oldest_value">oldest</string>
+    <string name="settings_orderBy_newest_value">newest</string>
+    <string name="settings_orderBy_mostRelevant_value">relevance</string>
+    <string name="query_orderBy_key">order-by</string>
+    <string name="query_toDate_key">to-date</string>
+    <string name="query_showFields_key">show-fields</string>
+    <string name="query_showFields_value">thumbnail,trailText,byline</string>
+    <string name="query_pageSize_key">page-size</string>
+    <string name="query_pageSize_value">10</string>
+    <string name="query_query_key">q</string>
+    <string name="query_query_value">psycho%20AND%20lovers</string>
+    <string name="query_apiKey_key">api-key</string>
+    <string name="query_apiKey_value">2f9983a9-01ab-4f12-a8ec-8e48dcb466e6</string>
+    <string name="toDate_limitedDigits">0123456789-</string>
 </resources>
