@@ -4,13 +4,17 @@ import android.app.LoaderManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.Loader;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -70,7 +74,24 @@ public class MainActivity extends AppCompatActivity implements NewsAdapter.OnIte
 
     @Override
     public Loader<List<News>> onCreateLoader(int id, Bundle args) {
-        return new NewsLoader(this, REQUEST_URL_STR);
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+        String toDate = sharedPrefs.getString(
+                getString(R.string.settings_toDate_key),
+                getString(R.string.settings_toDate_default));
+        String orderBy = sharedPrefs.getString(
+                getString(R.string.settings_orderBy_key),
+                getString(R.string.settings_orderBy_default));
+        Uri baseUri = Uri.parse(REQUEST_URL_STR);
+        Uri.Builder uriBuilder = baseUri.buildUpon();
+        uriBuilder.appendQueryParameter(getString(R.string.query_orderBy_key), orderBy);
+        if (!toDate.isEmpty() && !toDate.equals(getString(R.string.settings_toDate_default))) {
+            uriBuilder.appendQueryParameter(getString(R.string.query_toDate_key), toDate);
+        }
+        uriBuilder.appendQueryParameter(getString(R.string.query_showFields_key), getString(R.string.query_showFields_value));
+        uriBuilder.appendQueryParameter(getString(R.string.query_pageSize_key), getString(R.string.query_pageSize_value));
+        uriBuilder.appendQueryParameter(getString(R.string.query_query_key), getString(R.string.query_query_value));
+        uriBuilder.appendQueryParameter(getString(R.string.query_apiKey_key), getString(R.string.query_apiKey_value));
+        return new NewsLoader(this, uriBuilder.toString());
     }
 
     @Override
@@ -93,5 +114,21 @@ public class MainActivity extends AppCompatActivity implements NewsAdapter.OnIte
     @Override
     public void onLoaderReset(Loader<List<News>> loader) {
         newsAdapter.setNews(new ArrayList<News>());
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            startActivity(new Intent(this, SettingsActivity.class));
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
